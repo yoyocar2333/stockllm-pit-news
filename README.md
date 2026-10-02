@@ -4,7 +4,7 @@ News / unstructured-data branch of my undergraduate research project on financia
 
 This repository studies whether financial news adds **incremental next-trading-day direction signal** beyond simple baselines, with strict controls for look-ahead leakage.
 
-Companion structured market-model repository: https://github.com/yoyocar2333/stock1
+Companion structured market-model repository: https://github.com/yoyocar2333/financial-sequence-benchmark
 
 ## Research question
 
