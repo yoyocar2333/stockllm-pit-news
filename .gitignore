@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.step5_model_cache/
+outputs/
+reports/generated/
+data/raw/*
+!data/sample_news.csv
+data/processed/
+**/llm_cache/
