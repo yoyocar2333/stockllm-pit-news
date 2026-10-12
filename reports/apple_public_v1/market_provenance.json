@@ -1,0 +1,64 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?period1=1667260800&period2=1767484800&interval=1d&events=div%2Csplits",
+  "sha256": "3fc7a39e9c5592db16519a654a3dec49bca1b8f30eeb774acb2c74c6ded72318",
+  "rows": 795,
+  "start": "2022-11-01",
+  "end": "2026-01-02",
+  "price_policy": "raw OHLC, unadjusted; no adjusted-close target",
+  "events": {
+    "dividends": {
+      "1667568600": {
+        "amount": 0.23,
+        "date": 1667568600
+      },
+      "1676039400": {
+        "amount": 0.23,
+        "date": 1676039400
+      },
+      "1683898200": {
+        "amount": 0.24,
+        "date": 1683898200
+      },
+      "1691760600": {
+        "amount": 0.24,
+        "date": 1691760600
+      },
+      "1699626600": {
+        "amount": 0.24,
+        "date": 1699626600
+      },
+      "1707489000": {
+        "amount": 0.24,
+        "date": 1707489000
+      },
+      "1715347800": {
+        "amount": 0.25,
+        "date": 1715347800
+      },
+      "1723469400": {
+        "amount": 0.25,
+        "date": 1723469400
+      },
+      "1731076200": {
+        "amount": 0.25,
+        "date": 1731076200
+      },
+      "1739197800": {
+        "amount": 0.25,
+        "date": 1739197800
+      },
+      "1747056600": {
+        "amount": 0.26,
+        "date": 1747056600
+      },
+      "1754919000": {
+        "amount": 0.26,
+        "date": 1754919000
+      },
+      "1762785000": {
+        "amount": 0.26,
+        "date": 1762785000
+      }
+    }
+  }
+}

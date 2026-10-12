@@ -1,0 +1,5 @@
+article_id,source,row_id,annotation_mode,review_status,decision,gold_actor,gold_action,gold_object,gold_event_type,gold_target_role,evidence
+demo001,title,demo001:0,assisted,reviewed,keep,Apple,sue,Samsung,litigation,actor,Apple sues Samsung over patents
+demo002,title,demo002:0,assisted,reviewed,keep,Samsung,sue,Apple,litigation,object,Samsung sues Apple over patents
+demo003,title,demo003:0,assisted,reviewed,keep,Tesla,unveil,new car prototype,product_launch,actor,Tesla unveils new car prototype
+demo004,title,demo004:0,assisted,reviewed,keep,Regulators,investigate,Apple,regulation,object,Regulators investigate Apple

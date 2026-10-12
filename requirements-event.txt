@@ -1,0 +1,4 @@
+pandas==3.0.6
+pytest==9.1.1
+spacy==3.8.16
+# Optional: gliner2[local] for the second extractor
