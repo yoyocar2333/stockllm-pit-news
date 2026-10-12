@@ -141,3 +141,22 @@ The recovered historical cache recorded a Gemini model key, but the original ser
 ## Scope
 
 This is a research PoC, not trading advice.
+
+## Local event extraction prototype (E0–E4 preparation)
+
+The `research/event-extraction-e0-e4` branch includes the recovered ZIP prototype,
+an English spaCy CPU baseline, an optional local GLiNER2 backend, human annotation
+exports and validation. See [the Chinese step-by-step guide](docs/EVENT_EXTRACTION_GUIDE_ZH.md)
+and [the Colab notebook](notebooks/event_extraction_colab.ipynb).
+
+```bash
+python -m pip install -r requirements-event.txt
+python -m spacy download en_core_web_sm
+python -m event_extraction.run --backend spacy --source title --output outputs/events_title.csv
+python -m event_extraction.annotate prepare --input outputs/events_title.csv --output outputs/annotation_title.csv
+python -m pytest tests/test_event_extractors.py tests/test_event_annotation.py tests/test_event_run.py -q
+```
+
+The four bundled articles are synthetic. E0–E4 remains a research protocol;
+this prototype does not run those stock-prediction experiments or establish
+forecasting performance. It does not require Gemini/API credentials.
