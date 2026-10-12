@@ -1,0 +1,21 @@
+{
+  "articles": 450,
+  "feature_rows": 900,
+  "input_sha256": "07a7199b2d24da3e9258d6141c68c17a87f458e6e9b781c16274f257214c0c77",
+  "full_articles_over_single_512_token_window": 370,
+  "total_body_and_title_chunks": 1809,
+  "truncated_tokens": 0,
+  "extraction_status_counts": {
+    "title": {
+      "ok": 492,
+      "no_event_detected": 42
+    },
+    "full": {
+      "ok": 42008,
+      "no_event_detected": 42
+    }
+  },
+  "title_articles_without_event": 42,
+  "full_articles_without_event": 0,
+  "independent_human_gold_available": false
+}

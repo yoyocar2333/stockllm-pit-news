@@ -1,0 +1,8 @@
+-r requirements-event.txt
+beautifulsoup4==4.15.0
+requests==2.34.2
+exchange-calendars==4.13.2
+scikit-learn==1.9.1
+matplotlib==3.11.2
+torch==2.14.1
+transformers==5.19.0

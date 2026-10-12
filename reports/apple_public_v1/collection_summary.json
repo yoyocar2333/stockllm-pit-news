@@ -1,0 +1,13 @@
+{
+  "retrieved_utc": "2026-10-12T13:28:58.991972+00:00",
+  "articles": 450,
+  "articles_by_year": {
+    "2023": 152,
+    "2024": 158,
+    "2025": 140
+  },
+  "market_rows": 795,
+  "source_scope": "Apple corporate newsroom only",
+  "timestamp_precision": "date only; earliest cutoff is next trading session after published date",
+  "historical_text_revision_verified": false
+}

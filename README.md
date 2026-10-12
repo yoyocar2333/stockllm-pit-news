@@ -157,6 +157,22 @@ python -m event_extraction.annotate prepare --input outputs/events_title.csv --o
 python -m pytest tests/test_event_extractors.py tests/test_event_annotation.py tests/test_event_run.py -q
 ```
 
-The four bundled articles are synthetic. E0–E4 remains a research protocol;
-this prototype does not run those stock-prediction experiments or establish
-forecasting performance. It does not require Gemini/API credentials.
+The four bundled articles are synthetic. This extraction prototype does not
+establish forecasting performance. The separate public-data pilot below runs
+the first E0–E4 retrospective comparison. Neither workflow requires Gemini/API credentials.
+
+## Real public-data pilot: AAPL 2023–2025
+
+The research branch now includes a completed exploratory run on 450 real Apple
+Newsroom articles with full prose, using local FinBERT and spaCy. It trains on
+2023, reports 2024 validation and evaluates 249 matched sessions in 2025.
+E1 has the highest test accuracy point estimate (54.62%), versus 52.61% for
+always-up. Event features do not establish a reliable improvement.
+
+See [the frozen protocol and reproduction commands](docs/APPLE_PUBLIC_V1_PROTOCOL.md),
+[the Chinese results](reports/apple_public_v1/RESULTS_ZH.md), and
+[the real-data Colab notebook](notebooks/apple_public_real_experiment.ipynb).
+This is an exploratory retrospective study: historical text revisions and
+pretrained-model contamination are not independently excluded, and a real-news
+independent human extraction reference set remains outstanding. Raw news text,
+HTTP caches and model weights are not committed.

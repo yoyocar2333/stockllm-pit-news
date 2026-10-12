@@ -1,0 +1,47 @@
+{
+  "experiment_id": "apple_public_v1",
+  "config_sha256": "1e6733fba73e59ccc9b981e11103504a0ff3359e6f9ffd66930a1c7dd2d25304",
+  "market_sha256": "064ab9fe0d316d03bb2aa00c27c78d9454132ee8d200fa0f140d50e30eaba74d",
+  "features_sha256": "494d6e89064ab0cebe87430eeae0bbf6d561aba8138e5c680a01cb84d0e9db44",
+  "article_count": 450,
+  "calendar_validation": "all observed dates equal XNYS sessions",
+  "paired_population": "identical cutoffs, targets and article IDs",
+  "splits": {
+    "train": {
+      "n": 249,
+      "first": "2023-01-03",
+      "last": "2023-12-28",
+      "news_days": 98
+    },
+    "validation": {
+      "n": 251,
+      "first": "2024-01-02",
+      "last": "2024-12-30",
+      "news_days": 101
+    },
+    "test": {
+      "n": 249,
+      "first": "2025-01-02",
+      "last": "2025-12-30",
+      "news_days": 92
+    }
+  },
+  "test_used_for_tuning": false,
+  "refitted_on_validation": false,
+  "fitted_feature_dimensions": {
+    "Market": 9,
+    "E0": 14,
+    "E1": 14,
+    "E2": 67,
+    "E3": 67,
+    "E4": 67
+  },
+  "independent_human_gold_available": false,
+  "study_status": "exploratory_retrospective_not_confirmatory",
+  "limitations": [
+    "corporate-source selection bias",
+    "historical body revisions not independently archived",
+    "no independent human extraction gold set yet",
+    "pretrained-model historical contamination not excluded"
+  ]
+}

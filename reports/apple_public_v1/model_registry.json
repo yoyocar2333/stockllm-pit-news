@@ -1,0 +1,15 @@
+{
+  "input_sha256": "07a7199b2d24da3e9258d6141c68c17a87f458e6e9b781c16274f257214c0c77",
+  "model": "ProsusAI/finbert",
+  "revision": "0bc2ac10dda6929bcb1f77ccc43c7ec5c424f031",
+  "tokenizer": "BertTokenizer",
+  "pooling": "token-weighted nonoverlapping chunks",
+  "packages": {
+    "torch": "2.14.1",
+    "transformers": "5.19.0",
+    "spacy": "3.8.16",
+    "en-core-web-sm": "3.8.0"
+  },
+  "text_input_only": true,
+  "market_input_to_extraction": false
+}
