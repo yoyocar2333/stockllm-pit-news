@@ -176,3 +176,14 @@ This is an exploratory retrospective study: historical text revisions and
 pretrained-model contamination are not independently excluded, and a real-news
 independent human extraction reference set remains outstanding. Raw news text,
 HTTP caches and model weights are not committed.
+
+## Next stage: extraction diagnostics on 2023 development text
+
+The [development audit](reports/apple_extraction_audit_v1/RESULTS_ZH.md) reproduces
+V1 event counts and identifies structural issues, including incomplete triples,
+company/product role confusion and missing financial-results rules. A separate
+V2 candidate filter and a frozen 100-title GLiNER2 comparison are included.
+These are diagnostics, not validated extraction accuracy or new forecast gains.
+
+The [independent review protocol](docs/EXTRACTION_V2_REVIEW_PROTOCOL_ZH.md) defines
+the pending 100-item human reference study. No 2025 forecasting result is changed.

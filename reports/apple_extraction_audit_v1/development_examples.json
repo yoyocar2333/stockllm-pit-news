@@ -1,0 +1,80 @@
+[
+  {
+    "article_id": "apple_01f6125b0ac02dff",
+    "source_url": "https://www.apple.com/newsroom/2023/09/apple-introduces-the-advanced-new-apple-watch-series-9/",
+    "description_zh": "Apple 推出 Watch Series 9；產品不是公司本體",
+    "v1_type": "other",
+    "v2_type": "product_launch",
+    "v1_company_role": "both",
+    "v2_company_role": "actor",
+    "v2_reference": "direct_company",
+    "v2_status": "candidate",
+    "subject_inherited_from_conj": false,
+    "reviewer_type": "ai_assisted_development_example_not_independent_gold"
+  },
+  {
+    "article_id": "apple_a8725cfd0fab3b62",
+    "source_url": "https://www.apple.com/newsroom/2023/11/apple-reports-fourth-quarter-results/",
+    "description_zh": "Apple 發布第四季財報",
+    "v1_type": "other",
+    "v2_type": "earnings",
+    "v1_company_role": "actor",
+    "v2_company_role": "actor",
+    "v2_reference": "direct_company",
+    "v2_status": "candidate",
+    "subject_inherited_from_conj": false,
+    "reviewer_type": "ai_assisted_development_example_not_independent_gold"
+  },
+  {
+    "article_id": "apple_d461fe367503daf9",
+    "source_url": "https://www.apple.com/newsroom/2023/02/apple-reports-first-quarter-results/",
+    "description_zh": "Apple 發布第一季財報",
+    "v1_type": "other",
+    "v2_type": "earnings",
+    "v1_company_role": "actor",
+    "v2_company_role": "actor",
+    "v2_reference": "direct_company",
+    "v2_status": "candidate",
+    "subject_inherited_from_conj": false,
+    "reviewer_type": "ai_assisted_development_example_not_independent_gold"
+  },
+  {
+    "article_id": "apple_6c383a6ef09168bb",
+    "source_url": "https://www.apple.com/newsroom/2023/06/introducing-apple-vision-pro/",
+    "description_zh": "Vision Pro 介紹標題省略行動者",
+    "v1_type": "other",
+    "v2_type": "product_launch",
+    "v1_company_role": "object",
+    "v2_company_role": "other",
+    "v2_reference": "brand",
+    "v2_status": "partial_requires_review",
+    "subject_inherited_from_conj": false,
+    "reviewer_type": "ai_assisted_development_example_not_independent_gold"
+  },
+  {
+    "article_id": "apple_3549537c0586baf9",
+    "source_url": "https://www.apple.com/newsroom/2023/12/apple-expands-self-service-repair-and-introduces-new-diagnostics-process/",
+    "description_zh": "Apple 擴大維修服務並介紹新診斷工具",
+    "v1_type": "other",
+    "v2_type": "product_launch",
+    "v1_company_role": "other",
+    "v2_company_role": "actor",
+    "v2_reference": "direct_company",
+    "v2_status": "candidate",
+    "subject_inherited_from_conj": true,
+    "reviewer_type": "ai_assisted_development_example_not_independent_gold"
+  },
+  {
+    "article_id": "apple_9457ee56d7f1271a",
+    "source_url": "https://www.apple.com/newsroom/2023/10/apple-introduces-new-apple-pencil-bringing-more-value-and-choice-to-the-lineup/",
+    "description_zh": "Apple 介紹新 Pencil；名稱中 Apple 不表示公司受詞",
+    "v1_type": "other",
+    "v2_type": "product_launch",
+    "v1_company_role": "both",
+    "v2_company_role": "actor",
+    "v2_reference": "direct_company",
+    "v2_status": "candidate",
+    "subject_inherited_from_conj": false,
+    "reviewer_type": "ai_assisted_development_example_not_independent_gold"
+  }
+]

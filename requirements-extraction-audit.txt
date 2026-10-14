@@ -1,0 +1,2 @@
+-r requirements-research.txt
+gliner2[local]==2.1.0

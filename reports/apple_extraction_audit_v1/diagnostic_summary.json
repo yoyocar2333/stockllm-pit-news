@@ -1,0 +1,291 @@
+{
+  "scope": "2023 development only; price-free; no 2024/2025 text used for diagnostics",
+  "development_articles": 152,
+  "frozen_blind_sample_articles": 100,
+  "v1_event_counts_reproduced": true,
+  "independent_human_gold_available": false,
+  "all_development": {
+    "title": {
+      "events": 164,
+      "flag_counts": {
+        "incomplete_triple": 65,
+        "no_explicit_target_argument": 63,
+        "target_only_in_argument_subtree": 2,
+        "auxiliary_as_event": 11,
+        "modality_not_in_v1_schema": 4,
+        "reporting_or_mental_verb": 1
+      },
+      "event_type_counts": {
+        "other": 140,
+        "product_launch": 23,
+        "earnings": 1
+      },
+      "top_actions": [
+        [
+          "introduce",
+          17
+        ],
+        [
+          "unveil",
+          12
+        ],
+        [
+          "be",
+          11
+        ],
+        [
+          "bring",
+          10
+        ],
+        [
+          "announce",
+          10
+        ],
+        [
+          "open",
+          8
+        ],
+        [
+          "launch",
+          6
+        ],
+        [
+          "celebrate",
+          5
+        ],
+        [
+          "expand",
+          5
+        ],
+        [
+          "help",
+          4
+        ],
+        [
+          "report",
+          4
+        ],
+        [
+          "preserve",
+          3
+        ]
+      ]
+    },
+    "full": {
+      "events": 13591,
+      "flag_counts": {
+        "incomplete_triple": 8985,
+        "no_explicit_target_argument": 11788,
+        "auxiliary_as_event": 1442,
+        "target_only_in_argument_subtree": 637,
+        "modality_not_in_v1_schema": 1731,
+        "pronoun_actor": 2311,
+        "reporting_or_mental_verb": 467,
+        "negation_not_in_v1_schema": 191,
+        "long_argument_span": 595
+      },
+      "event_type_counts": {
+        "other": 13194,
+        "product_launch": 316,
+        "earnings": 58,
+        "litigation": 9,
+        "merger_acquisition": 2,
+        "regulation": 12
+      },
+      "top_actions": [
+        [
+          "be",
+          1442
+        ],
+        [
+          "use",
+          372
+        ],
+        [
+          "have",
+          287
+        ],
+        [
+          "say",
+          257
+        ],
+        [
+          "make",
+          237
+        ],
+        [
+          "feature",
+          222
+        ],
+        [
+          "bring",
+          215
+        ],
+        [
+          "create",
+          201
+        ],
+        [
+          "help",
+          196
+        ],
+        [
+          "offer",
+          196
+        ],
+        [
+          "get",
+          175
+        ],
+        [
+          "take",
+          174
+        ]
+      ]
+    }
+  },
+  "frozen_sample": {
+    "title": {
+      "events": 107,
+      "flag_counts": {
+        "incomplete_triple": 45,
+        "no_explicit_target_argument": 39,
+        "target_only_in_argument_subtree": 2,
+        "auxiliary_as_event": 8,
+        "modality_not_in_v1_schema": 3,
+        "reporting_or_mental_verb": 1
+      },
+      "event_type_counts": {
+        "other": 93,
+        "product_launch": 13,
+        "earnings": 1
+      },
+      "top_actions": [
+        [
+          "introduce",
+          14
+        ],
+        [
+          "unveil",
+          8
+        ],
+        [
+          "be",
+          8
+        ],
+        [
+          "announce",
+          8
+        ],
+        [
+          "open",
+          6
+        ],
+        [
+          "bring",
+          5
+        ],
+        [
+          "expand",
+          4
+        ],
+        [
+          "help",
+          3
+        ],
+        [
+          "celebrate",
+          3
+        ],
+        [
+          "launch",
+          2
+        ],
+        [
+          "advance",
+          2
+        ],
+        [
+          "grow",
+          2
+        ]
+      ]
+    },
+    "full": {
+      "events": 8978,
+      "flag_counts": {
+        "incomplete_triple": 5926,
+        "no_explicit_target_argument": 7733,
+        "auxiliary_as_event": 980,
+        "target_only_in_argument_subtree": 429,
+        "modality_not_in_v1_schema": 1134,
+        "pronoun_actor": 1470,
+        "reporting_or_mental_verb": 294,
+        "negation_not_in_v1_schema": 113,
+        "long_argument_span": 384
+      },
+      "event_type_counts": {
+        "other": 8696,
+        "product_launch": 231,
+        "earnings": 43,
+        "regulation": 5,
+        "litigation": 3
+      },
+      "top_actions": [
+        [
+          "be",
+          980
+        ],
+        [
+          "use",
+          256
+        ],
+        [
+          "have",
+          191
+        ],
+        [
+          "say",
+          171
+        ],
+        [
+          "make",
+          170
+        ],
+        [
+          "feature",
+          164
+        ],
+        [
+          "bring",
+          146
+        ],
+        [
+          "help",
+          131
+        ],
+        [
+          "create",
+          126
+        ],
+        [
+          "provide",
+          123
+        ],
+        [
+          "offer",
+          123
+        ],
+        [
+          "take",
+          118
+        ]
+      ]
+    }
+  },
+  "exact_duplicate_mentions": {
+    "full": 329,
+    "title": 0
+  },
+  "interpretation": "Flags are structural review indicators, not extraction error rates or precision/recall."
+}

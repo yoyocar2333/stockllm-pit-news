@@ -1,0 +1,54 @@
+{
+  "scope_year": 2023,
+  "development_articles": 152,
+  "frozen_sample_size": 100,
+  "structural_counts": {
+    "title": {
+      "v1_records": 164,
+      "v2_candidates": 107,
+      "v2_partial": 18,
+      "v2_negated": 0,
+      "v2_modal": 3,
+      "company_role_changed": 21,
+      "event_type_changed": 20,
+      "rejected_no_direct_company_or_known_brand_argument": 44,
+      "rejected_nested_target_requires_review": 2,
+      "rejected_auxiliary_only": 11,
+      "rejected_reporting_or_mental_verb": 1
+    },
+    "full": {
+      "v1_records": 13591,
+      "v2_candidates": 1483,
+      "v2_partial": 588,
+      "v2_negated": 16,
+      "v2_modal": 184,
+      "company_role_changed": 313,
+      "event_type_changed": 65,
+      "rejected_no_direct_company_or_known_brand_argument": 11034,
+      "rejected_auxiliary_only": 1442,
+      "rejected_nested_target_requires_review": 637,
+      "rejected_reporting_or_mental_verb": 467,
+      "rejected_long_argument_span": 595,
+      "rejected_exact_duplicate": 18
+    }
+  },
+  "not_accuracy": "Filters can remove valid events; independent precision/recall is unknown",
+  "packages": {
+    "spacy": "3.8.16",
+    "en-core-web-sm": "3.8.0"
+  },
+  "gliner": {
+    "model": "fastino/gliner2-base-v1",
+    "revision": "f9634218e53580c56edf0de97ca1a7d3f1c2354e",
+    "package_version": "2.1.0",
+    "source": "title_only",
+    "articles": 100,
+    "article_outputs_disagree": 97,
+    "v1_no_event_articles": 11,
+    "gliner_no_event_articles": 0,
+    "gliner_missing_action_records": 14,
+    "gliner_incomplete_triple_records": 28,
+    "v1_incomplete_triple_records": 45,
+    "note": "Disagreement is not proof either backend is correct; class rules are shared."
+  }
+}

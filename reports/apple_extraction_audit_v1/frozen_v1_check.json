@@ -1,0 +1,12 @@
+{
+  "unchanged": true,
+  "baseline_commit": "64699ac16a1329685a6949623a39c2ad3066b48f",
+  "sha256": {
+    "event_extraction/extractors.py": "fe38ff629980911223c6358e99bbaa5fa76548cb0b8ee13fa20d810eac7ab07b",
+    "experiments/apple_public_v1.json": "1e6733fba73e59ccc9b981e11103504a0ff3359e6f9ffd66930a1c7dd2d25304",
+    "experiments/infer_apple_public.py": "6509c6543617ecd06889918179f4639f7f3d915e34fd161777e4432a4046ed0e",
+    "experiments/evaluate_apple_public.py": "407f94616c94cd20111549b691e9c9b66b8a7b9d68207441063d7c6c3bf113a4",
+    "reports/apple_public_v1/metrics.csv": "f0630ac077003d50135b144ac21ce74749a490cb38cefc25cd7d7b5d20b1c506",
+    "reports/apple_public_v1/evaluation_audit.json": "74d2eca7f34e5fa42f23504f3b84883e0656d661e041c0a8e63f417fc2b8af0c"
+  }
+}
