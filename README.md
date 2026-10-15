@@ -187,3 +187,14 @@ These are diagnostics, not validated extraction accuracy or new forecast gains.
 
 The [independent review protocol](docs/EXTRACTION_V2_REVIEW_PROTOCOL_ZH.md) defines
 the pending 100-item human reference study. No 2025 forecasting result is changed.
+
+## Frozen title review: AI-assisted development check
+
+The [100-title review](reports/apple_extraction_review_v1/RESULTS_ZH.md) includes
+an AI-authored semantic draft comparison and a local review interface. It finds
+over-filtering risks in the V2 candidate, including product availability and the
+different meanings of `add`. These are development findings, not independent
+human accuracy or a new forecast result. V2 has not entered forecast validation.
+See [the review instructions](docs/EXTRACTION_TITLE_REVIEW_ZH.md) for the blank
+independent workflow and the separate AI-assisted workflow. Private drafts and
+title-filled pages are generated under ignored `outputs/`, not published.

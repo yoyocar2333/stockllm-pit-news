@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-15",
+  "python_tests_passed": 43,
+  "browser_workflow_checks_passed": 14,
+  "desktop_and_mobile_images_inspected": true,
+  "independent_scorer_cli_rejections": {
+    "ai_draft": true,
+    "ai_exposed_but_declared_human": true,
+    "pending_template": true
+  },
+  "frozen_files_unchanged_sha256": {
+    "event_extraction/extractors.py": "fe38ff629980911223c6358e99bbaa5fa76548cb0b8ee13fa20d810eac7ab07b",
+    "event_extraction/candidate_v2.py": "5fec62d261ae018593e51468ff6b63fa410e639f085e67c72594c3a34b0a35c9",
+    "experiments/apple_public_v1.json": "1e6733fba73e59ccc9b981e11103504a0ff3359e6f9ffd66930a1c7dd2d25304",
+    "experiments/infer_apple_public.py": "6509c6543617ecd06889918179f4639f7f3d915e34fd161777e4432a4046ed0e",
+    "experiments/evaluate_apple_public.py": "407f94616c94cd20111549b691e9c9b66b8a7b9d68207441063d7c6c3bf113a4",
+    "reports/apple_public_v1/metrics.csv": "d80892cf6456c2a3da17557e243f2f0692dd31abf79993560013f6935531b550",
+    "reports/apple_public_v1/evaluation_audit.json": "62aca23f4998649df0cc38267261293c04110f9da31bbf18082caff9dedeb1b3",
+    "reports/apple_extraction_audit_v1/sample_freeze.json": "a2bdceb547933eeb1ee8c813581ecd967d4e90e9199bbcda00a796a49c729f50"
+  },
+  "real_human_labels_created": false,
+  "independent_accuracy_created": false,
+  "forecast_retrained": false,
+  "test_2025_reopened": false,
+  "private_material_in_public_archive": false
+}

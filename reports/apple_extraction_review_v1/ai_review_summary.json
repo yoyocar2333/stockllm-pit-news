@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-15",
+  "scope": "100 frozen 2023 titles; no body or price labels used",
+  "annotation_policy": "title_semantic_v1_20261015",
+  "source_input_sha256": "07a7199b2d24da3e9258d6141c68c17a87f458e6e9b781c16274f257214c0c77",
+  "ai_reviewed_articles": 100,
+  "ai_draft_event_records": 104,
+  "ai_no_event_articles": 5,
+  "ai_draft_sha256": "f08a53c01b567e64594be3517e170c4baccf725bc91412e454215c556a647b6d",
+  "ai_event_class_counts": {
+    "product_launch": 46,
+    "other": 54,
+    "earnings": 4
+  },
+  "independent_human_reviewed_articles": 0,
+  "independent_extraction_scores_created": false,
+  "eligible_for_v2_forecast_validation": false,
+  "gate_status": "pending_independent_human_review",
+  "forecast_retrained": false,
+  "test_2025_reopened": false,
+  "backends": {
+    "v1": {
+      "predicted_records": 107,
+      "ai_draft_records": 104,
+      "strict_shared_records": 11,
+      "shared_action_occurrences": 84,
+      "ai_action_occurrences_not_returned": 20,
+      "zero_output_with_nonempty_ai_draft": 11,
+      "exact_article_agreement": 7,
+      "incomplete_predictions": 45,
+      "missing_action_predictions": 0
+    },
+    "v2_candidate": {
+      "predicted_records": 71,
+      "ai_draft_records": 104,
+      "strict_shared_records": 20,
+      "shared_action_occurrences": 68,
+      "ai_action_occurrences_not_returned": 36,
+      "zero_output_with_nonempty_ai_draft": 29,
+      "exact_article_agreement": 21,
+      "incomplete_predictions": 12,
+      "missing_action_predictions": 0
+    },
+    "gliner2": {
+      "predicted_records": 101,
+      "ai_draft_records": 104,
+      "strict_shared_records": 2,
+      "shared_action_occurrences": 63,
+      "ai_action_occurrences_not_returned": 41,
+      "zero_output_with_nonempty_ai_draft": 0,
+      "exact_article_agreement": 1,
+      "incomplete_predictions": 28,
+      "missing_action_predictions": 14
+    }
+  },
+  "candidate_rejection_action_risk_records": 16,
+  "candidate_rejection_action_risk_articles": 15,
+  "interpretation": "Counts measure agreement with an AI-authored draft, NOT extraction accuracy. Action overlap alone does not validate roles, spans, factuality or event classes. Semantic policy includes availability/ellipsis and entity affiliation; V1 was syntactic. No model winner or human precision/recall/F1 is established."
+}

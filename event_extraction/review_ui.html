@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AAPL 標題事件核對</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f2f5f8;color:#172a3a;font:16px/1.65 system-ui,sans-serif}
+main{max-width:1050px;margin:auto;padding:28px 24px 50px}h1{font-size:28px;margin:0 0 8px}h2{line-height:1.45;font-size:24px;margin:12px 0}
+section{background:white;border:1px solid #d5dfe7;border-radius:14px;padding:22px;margin:18px 0}.muted{color:#506478;font-size:14px}
+.notice{border-left:4px solid #c18718;background:#fff8e8;padding:12px 16px}.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+label{display:block;font-weight:600}input,select,textarea,button{font:inherit;border:1px solid #a8b9c8;border-radius:7px;padding:8px 11px;max-width:100%}
+input,select,textarea{background:#fff;color:inherit}textarea{width:100%;min-height:68px;resize:vertical}button{cursor:pointer;background:#edf3f8;color:#172a3a}
+button.primary{background:#175d72;color:white;border-color:#175d72}button:disabled{opacity:.45;cursor:default}button:hover{filter:brightness(.97)}
+.field{flex:1;min-width:220px}.event{background:#f6f8fb;border:1px solid #d4dfe8;border-radius:9px;padding:15px;margin:14px 0}
+.event .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.event label{font-size:14px}.event label.full{grid-column:1/-1}
+#message{min-height:26px;color:#8a3518;font-weight:600}#position{font-variant-numeric:tabular-nums}#jump{width:85px}
+progress{width:100%;height:12px;accent-color:#175d72}a{color:#135e7b}.pill{padding:2px 10px;background:#e5eef5;border-radius:20px;font-size:14px}
+details{margin:12px 0}summary{cursor:pointer;font-weight:600}#reviewNote{min-height:80px}#status{font-weight:600}
+@media(max-width:650px){main{padding:18px 12px}section{padding:16px}.event .grid{grid-template-columns:1fr}.event label.full{grid-column:auto}h2{font-size:21px}}
+</style>
+<main>
+<h1>AAPL 標題事件核對</h1>
+<p class="muted" id="scopeText">固定的 100 篇 2023 年標題 · 使用收集時的快照 · 初始空白頁不含股價與模型答案</p>
+<p id="unbuilt" class="notice" hidden>這是介面範本。請先依研究文件產生含標題快照的本機核對頁。</p>
+<section>
+<div class="bar"><strong id="progressText"></strong><span id="exposureText" class="muted"></span></div>
+<progress id="progress" max="100" value="0"></progress>
+<div class="bar">
+<label class="field">核對者代號<input id="reviewer" placeholder="例如 reviewer_01" autocomplete="off"></label>
+<label class="field">核對方式<select id="reviewMode"><option value="human_independent">人工獨立：未看模型／AI 答案</option><option value="human_ai_assisted">人工＋AI 輔助核對</option></select></label>
+</div>
+<details><summary>第一次使用：四個步驟</summary>
+<ol><li>閱讀標題，填寫主詞、動詞原形、受詞、類別與公司角色。</li><li>沒有符合規格的事件，勾選「無符合事件」。缺少角色可留白，不要猜。</li><li>填核對者代號，按「完成本篇」，再處理下一篇。</li><li>隨時匯出備份；全部完成後再交回標註檔。</li></ol>
+<p>只有標題可用。產品名、門市、所有權不是公司本體。並列主動動詞可繼承明示主詞；祈使導讀及目的子句不當已完成事件。可用性／省略 be 依規格記錄。否定、未來與能力需寫在備註；五欄評分不會驗證事實性。</p>
+<p>看過 AI 建議的標註不能宣稱人工獨立。介面只記錄使用者聲明，無法驗證身分或獨立性。AI 草稿匯入後會保留 AI 接觸標記，必須逐篇核對。</p>
+</details>
+<div class="bar"><button id="export">匯出標註／備份</button><button id="import">匯入備份或 AI 草稿</button><input id="importFile" type="file" accept=".jsonl,.json" hidden></div>
+<p class="muted" id="storageText">資料只保存在這個瀏覽器。匯出檔案才是可攜備份；清除瀏覽器資料可能失去進度。</p>
+</section>
+<section>
+<div class="bar"><span id="position" class="pill"></span><span id="status"></span><span id="date" class="muted"></span></div>
+<h2 id="title"></h2><p><a id="source" target="_blank" rel="noopener noreferrer">查看來源頁</a> <span class="muted">若網頁標題改了，以這裡快照為準。</span></p>
+<p class="muted" id="articleId"></p>
+<label><input type="checkbox" id="noEvent"> 無符合事件</label>
+<div id="events"></div><button id="addEvent">＋ 新增事件</button>
+<label style="margin-top:16px">備註（歧義、否定、計畫／能力、跨度選擇）<textarea id="reviewNote" placeholder="保留需要第二位標註者核對的地方"></textarea></label>
+<div id="message" role="status" aria-live="polite"></div>
+<div class="bar"><button id="previous">上一篇</button><button class="primary" id="complete">完成本篇</button><button id="next">下一篇</button><label>跳至 <input id="jump" type="number" min="1" max="100" value="1"></label></div>
+</section>
+</main>
+<script>
+const DATA = /*__REVIEW_PAYLOAD__*/ null;
+const FIELDS=['actor','action','object','event_type','target_role'];
+const TYPES=['litigation','earnings','product_launch','merger_acquisition','regulation','other'];
+const ROLES=['actor','object','both','other','unknown'];
+const typeLabels=['訴訟','財務結果','產品／服務發布','併購','監管','其他'];
+const roleLabels=['行動者','受事','兩者','非公司本體','未確定'];
+const $=id=>document.getElementById(id);
+let index=0, rows=[], storageOK=true;
+const key=DATA?'aapl_title_review_v1_'+(DATA.ai_draft?'ai_':'blind_')+DATA.source_input_sha256+'_'+DATA.items.map(x=>x.title_sha256).join(''):'';
+function blank(a){return {...a,source:'title',ticker:'AAPL',target_name:'Apple',source_input_sha256:DATA.source_input_sha256,
+ annotation_policy:DATA.policy,review_status:'pending',reviewer_type:'',reviewer_id:'',no_event:null,events:[],notes:'',ai_exposed:false};}
+function validate(row,complete=false){
+ if(!Array.isArray(row.events))throw Error('事件欄位格式錯誤');
+ if(row.no_event===true&&row.events.length)throw Error('無事件與已填事件矛盾');
+ if(complete&&typeof row.no_event!=='boolean')throw Error('請新增事件或明確勾選無事件');
+ if(complete&&row.no_event===false&&!row.events.length)throw Error('請新增事件或勾選無事件');
+ for(const e of row.events){
+  if(FIELDS.some(f=>typeof e[f]!=='string'))throw Error('事件欄位必須為文字');
+  if(!TYPES.includes(e.event_type)||!ROLES.includes(e.target_role))throw Error('事件類別或角色無效');
+  if(complete&&(!e.action.trim()||!(e.actor.trim()||e.object.trim())))throw Error('每個事件需有動詞與至少一個角色');
+ }
+ if(complete&&(!row.reviewer_id.trim()||!['human_independent','human_ai_assisted'].includes(row.reviewer_type)))throw Error('請填核對者代號與方式');
+ if(complete&&row.ai_exposed&&row.reviewer_type==='human_independent')throw Error('已接觸 AI 的標註不可宣稱獨立');
+}
+function importRows(incoming){
+ if(!Array.isArray(incoming)||incoming.length!==DATA.items.length)throw Error('匯入檔必須剛好包含同一批 100 篇');
+ const byId=new Map(incoming.map(x=>[x.article_id,x]));
+ if(byId.size!==incoming.length||DATA.items.some(x=>!byId.has(x.article_id)))throw Error('樣本代號重複或不符');
+ return DATA.items.map(a=>{
+  const r=byId.get(a.article_id);
+  if(r.url!==a.url||r.source!=='title'||r.title_sha256!==a.title_sha256||r.source_input_sha256!==DATA.source_input_sha256)throw Error('快照雜湊、網址或來源不符');
+  const ai=Boolean(r.ai_exposed)||['ai_assisted','human_ai_assisted'].includes(r.reviewer_type);
+  const old=rows.find(x=>x.article_id===a.article_id);
+  const out={...blank(a),...r,title:a.title,ai_exposed:ai||Boolean(old?.ai_exposed)};
+  if(r.reviewer_type==='ai_assisted'){out.review_status='pending';out.reviewer_id='';out.reviewer_type='human_ai_assisted';}
+  if(out.ai_exposed&&out.reviewer_type==='human_independent')out.reviewer_type='human_ai_assisted';
+  if(!['pending','reviewed'].includes(out.review_status))throw Error('核對狀態無效');
+  validate(out,out.review_status==='reviewed');return out;
+ });
+}
+function save(){
+ try{localStorage.setItem(key,JSON.stringify({rows,index,reviewer:$('reviewer').value,mode:$('reviewMode').value}));}
+ catch(e){storageOK=false;$('storageText').textContent='瀏覽器儲存不可用。請在離開前匯出標註備份。';}
+ updateProgress();
+}
+function updateProgress(){
+ const count=rows.filter(r=>r.review_status==='reviewed').length;
+ $('progress').value=count;$('progressText').textContent=`已完成 ${count} / ${rows.length} 篇`;
+ $('exposureText').textContent=`含 AI 接觸標記 ${rows.filter(r=>r.ai_exposed).length} 篇`;
+}
+function edit(){rows[index].review_status='pending';$('status').textContent='待核對';$('message').textContent='';save();}
+function field(label,value,onChange,options,labels){
+ const l=document.createElement('label');l.textContent=label;
+ const control=document.createElement(options?'select':'textarea');
+ if(options)options.forEach((v,i)=>{const o=document.createElement('option');o.value=v;o.textContent=labels[i]+' · '+v;control.append(o);});
+ control.value=value;control.addEventListener(options?'change':'input',()=>{onChange(control.value);edit();});l.append(control);return l;
+}
+function renderEvents(){
+ $('events').replaceChildren();
+ rows[index].events.forEach((event,i)=>{
+  const box=document.createElement('div');box.className='event';
+  const head=document.createElement('div');head.className='bar';
+  const title=document.createElement('strong');title.textContent=`事件 ${i+1}`;
+  const remove=document.createElement('button');remove.textContent='刪除此事件';remove.onclick=()=>{rows[index].events.splice(i,1);rows[index].no_event=rows[index].events.length?false:null;edit();render();};
+  head.append(title,remove);box.append(head);const grid=document.createElement('div');grid.className='grid';
+  grid.append(field('主詞／行動者 actor',event.actor,v=>event.actor=v),field('動詞原形 action',event.action,v=>event.action=v));
+  const obj=field('受詞／受事 object',event.object,v=>event.object=v);obj.className='full';grid.append(obj);
+  grid.append(field('事件類別',event.event_type,v=>event.event_type=v,TYPES,typeLabels),field('Apple 公司本體角色',event.target_role,v=>event.target_role=v,ROLES,roleLabels));
+  box.append(grid);$('events').append(box);
+ });
+}
+function render(){
+ const r=rows[index];$('position').textContent=`${index+1} / ${rows.length}`;$('title').textContent=r.title;
+ $('source').href=r.url;$('date').textContent=r.publication_date;$('articleId').textContent=r.article_id;
+ $('status').textContent=(r.review_status==='reviewed'?'已完成':'待核對')+(r.ai_exposed?' · AI 輔助':'');
+ $('reviewMode').disabled=Boolean(r.ai_exposed);if(r.ai_exposed)$('reviewMode').value='human_ai_assisted';
+ $('scopeText').textContent=rows.some(x=>x.ai_exposed)?'固定的 100 篇 2023 年標題 · AI 輔助核對 · 不可當作獨立人工標準答案':'固定的 100 篇 2023 年標題 · 使用收集時的快照 · 不含股價與模型答案';
+ $('noEvent').checked=r.no_event===true;$('reviewNote').value=r.notes||'';
+ $('previous').disabled=index===0;$('next').disabled=index===rows.length-1;$('jump').value=index+1;
+ $('message').textContent='';renderEvents();updateProgress();
+}
+if(!DATA){$('unbuilt').hidden=false;document.querySelectorAll('button,input,select,textarea').forEach(e=>e.disabled=true);}
+else{
+ rows=DATA.items.map(blank);
+ if(DATA.ai_draft)rows=importRows(DATA.ai_draft);
+ try{const stored=JSON.parse(localStorage.getItem(key)||'null');if(stored){rows=importRows(stored.rows);index=Math.max(0,Math.min(rows.length-1,stored.index||0));$('reviewer').value=stored.reviewer||'';$('reviewMode').value=stored.mode||'human_independent';}}
+ catch(e){$('storageText').textContent='未載入瀏覽器備份：'+e.message+'。可手動匯入已匯出的檔案。';}
+ $('addEvent').onclick=()=>{const r=rows[index];r.events.push({actor:'',action:'',object:'',event_type:'other',target_role:'unknown'});r.no_event=false;edit();render();};
+ $('noEvent').onchange=()=>{const r=rows[index];if($('noEvent').checked&&r.events.length){$('noEvent').checked=false;$('message').textContent='請先刪除已填事件，再勾選無事件。';return;}r.no_event=$('noEvent').checked?true:null;edit();};
+ $('reviewNote').oninput=()=>{rows[index].notes=$('reviewNote').value;edit();};
+ $('reviewer').oninput=save;$('reviewMode').onchange=save;
+ $('complete').onclick=()=>{try{const r=rows[index];r.reviewer_id=$('reviewer').value.trim();r.reviewer_type=r.ai_exposed?'human_ai_assisted':$('reviewMode').value;if(r.reviewer_type==='human_ai_assisted')r.ai_exposed=true;validate(r,true);r.review_status='reviewed';save();render();$('message').textContent='本篇已保存。可按下一篇繼續。';}catch(e){$('message').textContent=e.message;}};
+ function go(n){index=Math.max(0,Math.min(rows.length-1,n));save();render();}
+ $('previous').onclick=()=>go(index-1);$('next').onclick=()=>go(index+1);$('jump').onchange=()=>go((Number($('jump').value)||1)-1);
+ $('export').onclick=()=>{const body=rows.map(r=>JSON.stringify(r)).join('\n')+'\n';const url=URL.createObjectURL(new Blob([body],{type:'application/x-ndjson;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='reviewed_title_annotations.jsonl';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('message').textContent='已匯出；待核對篇目仍保留 pending，不能當完成的獨立標準答案。';};
+ $('import').onclick=()=>$('importFile').click();
+ $('importFile').onchange=async()=>{try{const file=$('importFile').files[0];if(!file)return;const text=(await file.text()).replace(/^\uFEFF/,'').trim();const parsed=text.startsWith('[')?JSON.parse(text):text.split(/\r?\n/).filter(Boolean).map(s=>JSON.parse(s));rows=importRows(parsed);save();render();$('message').textContent='已匯入。AI 草稿仍需逐篇按完成；AI 接觸標記會保留。';}catch(e){$('message').textContent='未匯入：'+e.message;}finally{$('importFile').value='';}};
+ render();
+}
+</script>
+</html>

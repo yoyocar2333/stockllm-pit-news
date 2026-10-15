@@ -1,0 +1,20 @@
+{
+  "browser": "Microsoft Edge headless",
+  "checks": [
+    "blank snapshots, no predictions",
+    "required input guard",
+    "review completion",
+    "reload persistence",
+    "partial export",
+    "edit invalidates completion",
+    "navigation",
+    "AI import remains pending",
+    "AI provenance cannot be upgraded",
+    "sticky AI exposure across import",
+    "snapshot drift rejected",
+    "mobile has no horizontal overflow",
+    "AI prefilled page starts pending",
+    "no page errors"
+  ],
+  "passed": true
+}

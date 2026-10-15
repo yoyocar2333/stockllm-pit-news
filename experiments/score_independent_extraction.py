@@ -23,6 +23,8 @@ def load_reference(path,expected):
             raise ValueError('Independent labels are still pending')
         if row.get('reviewer_type')!='human_independent' or not str(row.get('reviewer_id','')).strip():
             raise ValueError('Independent human reviewer declaration is missing')
+        if row.get('ai_exposed'):
+            raise ValueError('AI-exposed labels cannot be scored as independent human labels')
         if row.get('source')!='title' or not isinstance(row.get('no_event'),bool):
             raise ValueError('Only title labels with explicit boolean no_event are supported')
         events=row.get('events')
